@@ -6,74 +6,6 @@ function init()
 {
     $(".confirmacionRegistro").hide();
 }
-/* function registrarUsuario()
-{
-    console.log("Mi boton Registro Funciona");
-    ///Variables
-    var banderaRegistro = 0;
-    ////Recoger los valores de los inputs
-    var name = $.trim($("#nombre").val());
-    var email = $.trim($("#mail").val());
-    var password = $.trim($("#pwd").val());
-    var password_r = $.trim($("#pwr_r").val());
-    ////
-    console.log("name = "+name);
-    console.log("email = "+email);
-    console.log("password = "+password);
-    console.log("password_r = "+password_r);
-    ////validación
-    var miContador = $('.miFormRegistro input').length;
-    console.log("contadorRegistro = "+miContador);
-
-    $('.miFormRegistro input').each(function (index){
-        if($(this).val() == "")
-        {
-            $(this).focus();
-            $('.alertaRegistro').html("El campo "+$(this).attr("name")+" no puede estar vacío");
-            return false;
-        }
-        banderaRegistro = banderaRegistro + 1;
-        //alert("No estan vacios" + banderaRegistro);
-    });
-    ////Fin validación
-    if(banderaRegistro == miContador)
-    {
-        if(password != password_r)
-        {
-            $('.alertaRegistro').html("Los password deben coincidir");
-        }
-        else
-        {
-            let myData = {
-                email:email,
-                password:password,
-                name:name
-            }
-            let dataToSend=JSON.stringify(myData);
-            console.log(dataToSend);
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url:"http://localhost:8080/api/user/new",
-                data: dataToSend,
-                datatype:"json",
-                cache: false,
-                timeout: 600000,
-                success:function(respuesta){
-                    $(".confirmacionRegistro").show();
-                    $(".miFormRegistro").hide();
-                },
-                error : function(e) {
-                    alert("No FUNCIONA");
-                },
-                done : function(e) {
-                    alert("No FUNCIONA");
-                }
-            });
-        }
-    }
-
-} */
 function login()
 {
     console.log("Mi boton Login Funciona");
@@ -121,9 +53,6 @@ function login()
                     console.log("ENTRO");
                     validarPerfiles(respuesta.type);
                     sessionStorage.setItem('miUser', JSON.stringify(respuesta));
-                    //window.location.href = "perfil.html";
-                    ///////PASAR INFO de una pagina a otra
-                    //sessionStorage.setItem("NombreUsuario",respuesta.name);
                 }
             }
         });
@@ -144,17 +73,6 @@ function validarPerfiles(perfil)
           break;
       }
 }
-/* function validarEmail(valor)
-{
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
-     return true;
-    } else {
-        return false;
-    }
-} */
-/* $(document).on("click",".btn_registrarse",function() {
-    registrarUsuario();
-}); */
 $(document).on("click",".btn_login",function() {
     login();
 });
