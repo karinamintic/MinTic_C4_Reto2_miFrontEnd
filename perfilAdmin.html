@@ -36,6 +36,7 @@
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">Servicios</li>
 					<li class="sidebar-item active"><a class="sidebar-link" href="#"><i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Administrar usuarios</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Administrar productos</span></a></li>
 				</ul>
 
 			</div>
@@ -58,42 +59,45 @@
             <!-- FIN MENU SUPERIOR -->
             <!-- MI CONTENIDO -->
             <main class="content">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModalRegistro">Agregar Usuario</button>
-                <br>
-                <br>
-                <table id="tablaUsuarios" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Identificación</th>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Celular</th>
-                            <th>Email</th>
-                            <th>password</th>
-                            <th>zone</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Identificación</th>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Celular</th>
-                            <th>Email</th>
-                            <th>password</th>
-                            <th>zone</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </tfoot>
-                </table>
-
-
-
+                <!-- Admin usuarios -->
+                <div class="adminUsuarios">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModalRegistro">Agregar Usuario</button>
+                    <br>
+                    <br>
+                    <table id="tablaUsuarios" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Celular</th>
+                                <th>Email</th>
+                                <th>password</th>
+                                <th>zone</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Celular</th>
+                                <th>Email</th>
+                                <th>password</th>
+                                <th>zone</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- Fin Admin usuarios -->
+                <div class="adminProductos">
+                </div>
             </main>
             <!-- FIN CONTENIDO -->
         </div>
