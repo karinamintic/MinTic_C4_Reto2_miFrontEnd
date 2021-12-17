@@ -1,3 +1,8 @@
+var urlHost = "http://localhost:8080";
+var urlUser = "/api/user/";
+var urlUserNew = "/api/user/new";
+var urlUserEdit = "/api/user/update";
+var urlUserGet = "/api/user/all";
 var recuperarJson;
 var miIndice;
 $( document ).ready(function() {
@@ -13,7 +18,7 @@ function init()
 }
 function traerInformacion(){
 
-    urlString = "http://150.230.95.72:8080/api/user/all";
+    urlString = urlHost + urlUserGet;
     $.ajax({
         method: "GET",
         url: urlString
@@ -121,7 +126,7 @@ function agregarUsuario(_id)
             console.log(dataToSend);
             /////Verificar si usuario Existe
             $.ajax({
-                url:"http://150.230.95.72:8080/api/user/"+email+"/"+password,
+                url:urlHost+urlUser+email+"/"+password,
                 type: "GET",
                 datatype:"JSON",
                 success:function(respuesta){
@@ -135,13 +140,14 @@ function agregarUsuario(_id)
                         $.ajax({
                             type: "POST",
                             contentType: "application/json",
-                            url:"http://150.230.95.72:8080/api/user/new",
+                            url:urlHost+urlUserNew,
                             data: dataToSend,
                             datatype:"json",
                             cache: false,
                             timeout: 600000,
                             success:function(respuesta){
                                 location.reload();
+                                //console.log("URL ="+urlHost+urlUserNew);
                             },
                             error : function(e) {
                                 alert("No FUNCIONA");
@@ -167,7 +173,7 @@ function agregarUsuario(_id)
 function f_llenarUsuarioEditar(correo,pass)
 {
     $.ajax({
-        url:"http://150.230.95.72:8080/api/user/"+correo+"/"+pass,
+        url:urlHost+urlUser+correo+"/"+pass,
         type: "GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -234,7 +240,7 @@ function editarInformacion()
     }
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://150.230.95.72:8080/api/user/update",
+        url:urlHost+urlUserEdit,
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
@@ -251,7 +257,7 @@ function borrarCategoria(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://150.230.95.72:8080/api/user/"+idElemento,
+        url:urlHost+urlUser+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -291,7 +297,7 @@ $(document).on("click", ".btn_borrar", function(){
     var email = fila.find('td:eq(4)').text();
     var password = fila.find('td:eq(5)').text();
     $.ajax({
-        url:"http://150.230.95.72:8080/api/user/"+email+"/"+password,
+        url:urlHost+urlUser+email+"/"+password,
         type: "GET",
         datatype:"JSON",
         success:function(respuesta){

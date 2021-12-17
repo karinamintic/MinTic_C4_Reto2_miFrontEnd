@@ -1,3 +1,6 @@
+var urlHost = "http://localhost:8080";
+var urlUser = "/api/user/";
+var urlUserNew = "/api/user/new/";
 $( document ).ready(function() {
     console.log( "Estas en la página Inicio" );
     init();
@@ -37,7 +40,7 @@ function login()
     if(banderaLogin == miContador)
     {
         $.ajax({
-            url:"http://150.230.95.72:8080/api/user/"+usuario_login+"/"+password_login,
+            url:urlHost+urlUser+usuario_login+"/"+password_login,
             type: "GET",
             datatype:"JSON",
             success:function(respuesta){
@@ -62,16 +65,16 @@ function validarPerfiles(perfil)
 {
     switch (perfil) {
         case 'ADM':
-          console.log('Perfil Admin');
-          window.location.href = "perfilAdmin.html";
-          break;
+            console.log('Perfil Admin');
+            window.location.href = "perfilAdmin.html";
+            break;
         case 'COORD':
             console.log('Perfil Coordinador');
-          break;
+            break;
         case 'ASE':
             console.log('Perfil Asesor');
-          break;
-      }
+            break;
+        }
 }
 $(document).on("click",".btn_login",function() {
     login();
